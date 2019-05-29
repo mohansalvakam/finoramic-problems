@@ -1,0 +1,17 @@
+class Solution:
+    # @param A : tuple of strings
+    # @return a list of list of integers
+    def anagrams(self, A):
+        dic={}
+        l=[]
+        n=0
+        for i in range(len(A)):
+            S = ''.join(sorted(A[i]))
+            if S not in dic:
+                l.append([i+1])
+                dic[S]=n
+                n=n+1 
+            else:
+                l[dic[S]].append(i+1)
+        
+        return  l
